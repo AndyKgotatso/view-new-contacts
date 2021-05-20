@@ -1,0 +1,36 @@
+<div *ngIf="contact">
+  <mat-card class="mat-elevation-z4">
+    <mat-card-header>
+      <mat-card-title>{{contact.firstName}} {{contact.lastName}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="card-content">
+      <mat-grid-list cols="4" rowHeight="35px">
+        <mat-grid-tile rowspan="2" colspan="2">
+          <div class="card-grid-content">
+            <div mat-line class="light-text">Cellphone:</div>
+            <div mat-line> {{contact.cellNumber}}</div>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile rowspan="2" colspan="2">
+          <div class="card-grid-content">
+            <div mat-line class="light-text">Address</div>
+            <div mat-line> {{contact.address}}</div>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile rowspan="2" colspan="2">
+          <div class="card-grid-content">
+            <div mat-line class="light-text">Email:</div>
+            <div mat-line> {{contact.email}}</div>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="contact-bio">
+    <h2>Contact Bio</h2>
+    <p>
+      {{contact.bio}}
+    </p>
+  </div>
+</div>

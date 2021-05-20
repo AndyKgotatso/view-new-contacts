@@ -1,0 +1,26 @@
+<mat-grid-list cols="4" rowHeight="100vh">
+  <mat-grid-tile colspan="1" class="contact-list">
+    <div class="grid-content">
+      <div class="grid-content-heading">
+        <input id="search" class="form-control" ngModel #search="ngModel"  (keyup)="searchContact(search.value)" type="search" placeholder="Search" autofocus required/>
+        <h3 class="contact-header">CONTACTS</h3>
+      </div>
+      <div *ngIf="contacts">
+        <mat-list *ngFor="let c of contacts" role="list" class="active-box">
+          <mat-list-item [ngClass]="selectedContact?.email === c.email ? 'active-link' : ''" (click)="openContactDetails(c)" role="listitem">
+            <div mat-list-avatar class="contact-avatar">
+              <h1 class="contact-initial">{{c.firstName?.charAt(0)}}{{c.lastName?.charAt(0)}}</h1>
+            </div>
+            <div mat-line>{{c.firstName}} {{c.lastName}}</div>
+            <div mat-line><p class="contact-number">{{c.cellNumber}}</p></div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3">
+    <div class="grid-content">
+      <app-contact-details [contact]="selectedContact"></app-contact-details>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
